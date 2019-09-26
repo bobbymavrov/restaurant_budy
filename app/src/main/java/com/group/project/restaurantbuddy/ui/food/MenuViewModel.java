@@ -1,16 +1,16 @@
-package com.group.project.restaurantbuddy.ui.send;
+package com.group.project.restaurantbuddy.ui.food;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SendViewModel extends ViewModel {
+public class MenuViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SendViewModel() {
+    public MenuViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is send fragment");
+        mText.setValue("This is Menu");
     }
 
     public LiveData<String> getText() {

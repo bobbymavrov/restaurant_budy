@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_open_menu"
-        android:name="com.group.project.restaurantbuddy.ui.gallery.GalleryFragment"
+        android:name="com.group.project.restaurantbuddy.ui.food.MenuFragment"
         android:label="@string/menu_food"
         tools:layout="@layout/fragment_gallery" />
 
@@ -36,8 +36,8 @@
         tools:layout="@layout/fragment_share" />
 
     <fragment
-        android:id="@+id/nav_send"
-        android:name="com.group.project.restaurantbuddy.ui.send.SendFragment"
-        android:label="@string/menu_send"
-        tools:layout="@layout/fragment_send" />
+        android:id="@+id/nav_sign"
+        android:name="com.group.project.restaurantbuddy.ui.sign.SignInFragment"
+        android:label="@string/menu_sign"
+        tools:layout="@layout/fragment_sign" />
 </navigation>

@@ -5,14 +5,22 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.group.project.restaurantbuddy.ui.food.MenuFragment;
+import com.group.project.restaurantbuddy.ui.home.HomeFragment;
+import com.group.project.restaurantbuddy.ui.sign.SignInFragment;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -21,7 +29,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -45,9 +53,10 @@ public class MainActivity extends AppCompatActivity {
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_open_menu, R.id.nav_talk,
-                R.id.nav_pay, R.id.nav_share, R.id.nav_send)
+                R.id.nav_pay, R.id.nav_share, R.id.nav_sign)
                 .setDrawerLayout(drawer)
                 .build();
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
@@ -65,5 +74,35 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        int id = menuItem.getItemId();
+
+        //NOTE: creating fragment object
+        Fragment fragment = null;
+
+        if (id == R.id.nav_home) {
+            fragment = new HomeFragment();
+        } else if (id == R.id.nav_open_menu) {
+            fragment = new MenuFragment();
+        } else if (id == R.id.nav_sign) {
+            fragment = new SignInFragment();
+        } else if (id == R.id.nav_home) {
+            fragment = new HomeFragment();
+        }
+
+        //NOTE: Fragment changing code
+        if (fragment != null) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.nav_home, fragment);
+            ft.commit();
+        }
+
+        //NOTE:  Closing the drawer after selecting
+        DrawerLayout drawer = findViewById(R.id.drawer_layout); //Ya you can also globalize this variable :P
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }
