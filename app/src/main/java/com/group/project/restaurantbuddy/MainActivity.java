@@ -5,15 +5,22 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.group.project.restaurantbuddy.ui.food.MenuFragment;
 import com.group.project.restaurantbuddy.ui.food.MyRecyclerViewAdapter;
+import com.group.project.restaurantbuddy.ui.home.HomeFragment;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -23,10 +30,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.Menu;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, MyRecyclerViewAdapter.ItemClickListener{
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -55,11 +63,12 @@ public class MainActivity extends AppCompatActivity{
                 R.id.nav_pay, R.id.nav_share, R.id.nav_send)
                 .setDrawerLayout(drawer)
                 .build();
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        ArrayList<String> animalNames = new ArrayList<>();
+       /* ArrayList<String> animalNames = new ArrayList<>();
         animalNames.add("Horse");
         animalNames.add("Cow");
         animalNames.add("Camel");
@@ -70,9 +79,8 @@ public class MainActivity extends AppCompatActivity{
         RecyclerView recyclerView = findViewById(R.id.rvAnimals);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new MyRecyclerViewAdapter(this, animalNames);
-        MyRecyclerViewAdapter.ItemClickListener listener;
-        adapter.setClickListener(listener);
-        recyclerView.setAdapter(adapter);
+        adapter.setClickListener(this);
+        recyclerView.setAdapter(adapter);*/
     }
 
     @Override
@@ -87,5 +95,38 @@ public class MainActivity extends AppCompatActivity{
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        int id = menuItem.getItemId();
+
+        //NOTE: creating fragment object
+        Fragment fragment = null;
+
+        if (id == R.id.nav_home) {
+            fragment = new HomeFragment();
+        } else if (id == R.id.nav_open_menu) {
+            fragment = new MenuFragment();
+        }else if (id == R.id.nav_open_menu) {
+            fragment = new MenuFragment();
+        }
+
+        //NOTE: Fragment changing code
+        if (fragment != null) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.nav_home, fragment);
+            ft.commit();
+        }
+
+        //NOTE:  Closing the drawer after selecting
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout); //Ya you can also globalize this variable :P
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    @Override
+    public void onItemClick(View view, int position) {
+        Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
     }
 }
