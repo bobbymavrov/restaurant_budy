@@ -13,26 +13,16 @@
             android:icon="@drawable/ic_restaurant_menu_black_24dp"
             android:title="@string/menu_food" />
         <item
-            android:id="@+id/nav_talk"
-            android:icon="@drawable/ic_person_black_24dp"
-            android:title="@string/menu_talk" />
-        <item
             android:id="@+id/nav_pay"
             android:icon="@drawable/ic_payment_black_24dp"
             android:title="@string/menu_pay" />
+        <item
+            android:id="@+id/nav_sign"
+            android:icon="@drawable/ic_menu_send"
+            android:title="@string/menu_sign" />
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_menu_share"
+            android:title="@string/menu_share" />
     </group>
-
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
-        </menu>
-    </item>
-
 </menu>

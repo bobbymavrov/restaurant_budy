@@ -20,6 +20,7 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.navigation.NavigationView;
 import com.group.project.restaurantbuddy.ui.food.MenuFragment;
 import com.group.project.restaurantbuddy.ui.home.HomeFragment;
+import com.group.project.restaurantbuddy.ui.sign.SignInFragment;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_open_menu, R.id.nav_talk,
-                R.id.nav_pay, R.id.nav_share, R.id.nav_send)
+                R.id.nav_pay, R.id.nav_share, R.id.nav_sign)
                 .setDrawerLayout(drawer)
                 .build();
 
@@ -86,6 +87,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragment = new HomeFragment();
         } else if (id == R.id.nav_open_menu) {
             fragment = new MenuFragment();
+        } else if (id == R.id.nav_sign) {
+            fragment = new SignInFragment();
         }
 
         //NOTE: Fragment changing code
