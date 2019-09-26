@@ -89,6 +89,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragment = new MenuFragment();
         } else if (id == R.id.nav_sign) {
             fragment = new SignInFragment();
+        } else if (id == R.id.nav_home) {
+            fragment = new HomeFragment();
         }
 
         //NOTE: Fragment changing code
