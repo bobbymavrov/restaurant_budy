@@ -19,26 +19,18 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 import com.group.project.restaurantbuddy.ui.food.MenuFragment;
-import com.group.project.restaurantbuddy.ui.food.MyRecyclerViewAdapter;
 import com.group.project.restaurantbuddy.ui.home.HomeFragment;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.Menu;
-import android.widget.Toast;
 
-import java.util.ArrayList;
-
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, MyRecyclerViewAdapter.ItemClickListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private AppBarConfiguration mAppBarConfiguration;
-
-    MyRecyclerViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,20 +59,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
-       /* ArrayList<String> animalNames = new ArrayList<>();
-        animalNames.add("Horse");
-        animalNames.add("Cow");
-        animalNames.add("Camel");
-        animalNames.add("Sheep");
-        animalNames.add("Goat");
-
-        // set up the RecyclerView
-        RecyclerView recyclerView = findViewById(R.id.rvAnimals);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MyRecyclerViewAdapter(this, animalNames);
-        adapter.setClickListener(this);
-        recyclerView.setAdapter(adapter);*/
     }
 
     @Override
@@ -108,8 +86,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragment = new HomeFragment();
         } else if (id == R.id.nav_open_menu) {
             fragment = new MenuFragment();
-        }else if (id == R.id.nav_open_menu) {
-            fragment = new MenuFragment();
         }
 
         //NOTE: Fragment changing code
@@ -120,13 +96,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         //NOTE:  Closing the drawer after selecting
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout); //Ya you can also globalize this variable :P
+        DrawerLayout drawer = findViewById(R.id.drawer_layout); //Ya you can also globalize this variable :P
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    @Override
-    public void onItemClick(View view, int position) {
-        Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
     }
 }
