@@ -31,6 +31,12 @@ import android.view.Menu;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
+    /////////////////Database Activity//////////////
+    Database userDb;
+
+
+    /////////////////Database Activity//////////////
+
     private AppBarConfiguration mAppBarConfiguration;
 
     @Override
@@ -60,6 +66,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        /////////////////Database Activity//////////////
+
+        userDb = new Database(this);
+
+        /////////////////Database Activity//////////////
     }
 
     @Override
