@@ -29,7 +29,7 @@
 
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/SignIn_button"
         android:layout_width="296dp"
         android:layout_height="80dp"
 
@@ -50,7 +50,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/SignUp_button"
         android:layout_width="296dp"
         android:layout_height="80dp"
         android:layout_marginStart="79dp"
@@ -117,19 +117,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/restaurant" />
 
-    <!--    <Button-->
-    <!--        android:id="@+id/button4"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginStart="41dp"-->
-    <!--        android:layout_marginLeft="41dp"-->
-    <!--        android:layout_marginTop="3dp"-->
-    <!--        android:layout_marginEnd="33dp"-->
-    <!--        android:layout_marginRight="33dp"-->
-    <!--        android:text="Butt"-->
-    <!--        app:layout_constraintEnd_toStartOf="@+id/imageView7"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="@+id/imageView7" />-->
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

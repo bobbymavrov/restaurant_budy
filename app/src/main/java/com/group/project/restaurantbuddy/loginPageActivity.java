@@ -1,21 +1,24 @@
 package com.group.project.restaurantbuddy;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.view.LayoutInflater;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 public class loginPageActivity extends AppCompatActivity {
-    private Button signinButton;
-    private Button signupButton;
+     Button signinButton;
+     Button signupButton;
+    LayoutInflater inflater;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_home);
-
-        signinButton = (Button) findViewById(R.id.button2);
+        //View rootView = inflater.inflate(R.layout.fragment_home,container,false);
+        signinButton = (Button) findViewById(R.id.SignIn_button);
         signinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -25,7 +28,7 @@ public class loginPageActivity extends AppCompatActivity {
             }
         });
 
-        signupButton = (Button) findViewById(R.id.button);
+        signupButton = (Button) findViewById(R.id.SignUp_button);
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
