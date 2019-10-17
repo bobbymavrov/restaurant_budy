@@ -16,7 +16,6 @@
         app:srcCompat="@drawable/reservation" />
 
 
-
     <RadioButton
         android:id="@+id/radio_one"
         android:layout_width="wrap_content"
