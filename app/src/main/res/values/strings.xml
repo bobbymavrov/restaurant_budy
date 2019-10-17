@@ -14,4 +14,27 @@
     <string name="menu_food">Menu</string>
     <string name="menu_share">Share</string>
     <string name="menu_sign">Sign</string>
+
+    <string name="title_activity_request">RequestActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="request">Request</string>
+    <string name="title_activity_request2">Request2Activity</string>
+
+    <string name="fork">Fork</string>
+
+    <string name="spoons">Spoons</string>
+
+    <string name="please_request_an_item_from_the_buttons_below_or_make_a_custom_request">Please request an item from the buttons below or make a custom request.</string>
+    <string name="other">Other</string>
+    <string name="water">Water</string>
+    <string name="knife">Knife</string>
+    <string name="salt">Salt</string>
+    <string name="spoon">Spoon</string>
+    <string name="refill">Refill</string>
+    <string name="napkins">Napkins</string>
+    <string name="custom_request">Custom Request</string>
+    <string name="please_enter_custom_request">Please enter custom request</string>
+    <string name="please_select_one_of_the_options_below_or_create_your_own_custom_request">Please select one of the options below or create your own custom request.</string>
+    <string name="picture">Picture</string>
 </resources>
