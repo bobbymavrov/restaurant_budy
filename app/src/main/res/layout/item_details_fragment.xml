@@ -2,8 +2,7 @@
 
     <ImageView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/imageView1"
+    android:id="@+id/item_details_fragment"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:adjustViewBounds="true"
-    android:onClick="onClick"/>
+    android:adjustViewBounds="true" />

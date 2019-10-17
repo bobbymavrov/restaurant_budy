@@ -1,23 +1,16 @@
 package com.group.project.restaurantbuddy.ui.food;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.group.project.restaurantbuddy.R;
-import com.group.project.restaurantbuddy.ui.menu.MyAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +37,7 @@ public class MenuFragment extends Fragment {
         List<Integer> imageList = new ArrayList<>();
         addImagesToList(imageList);
 
-        mAdapter = new MyAdapter(imageList);
+        mAdapter = new MyAdapter(imageList, getActivity());
         recyclerView.setAdapter(mAdapter);
 
         return rootView;

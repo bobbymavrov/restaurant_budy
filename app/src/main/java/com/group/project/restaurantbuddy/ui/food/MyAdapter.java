@@ -1,22 +1,24 @@
-package com.group.project.restaurantbuddy.ui.menu;
+package com.group.project.restaurantbuddy.ui.food;
 
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import androidx.core.content.ContextCompat;
-import androidx.core.content.res.ResourcesCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.group.project.restaurantbuddy.R;
+import com.group.project.restaurantbuddy.ui.details.DetailsFragment;
 
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private List<Integer> mDataset;
+    private FragmentActivity activity;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -33,8 +35,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(List<Integer> dataList) {
+    public MyAdapter(List<Integer> dataList, FragmentActivity _activity)
+    {
         mDataset = dataList;
+        activity = _activity;
     }
 
     // Create new views (invoked by the layout manager)
@@ -44,6 +48,21 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         // create a new view
         ImageView v = (ImageView) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.menu_item, parent, false);
+        v.setClickable(true);
+        v.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Fragment detailsFragment = new DetailsFragment();
+                if (detailsFragment != null){
+
+                    FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction();
+                    ft.replace(R.id.my_recycler_view, detailsFragment);
+                    ft.addToBackStack(null);
+                    ft.commit();
+                }
+            }
+        });
 
         MyViewHolder vh = new MyViewHolder(v);
         return vh;
@@ -67,3 +86,5 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         return mDataset.size();
     }
 }
+
+
