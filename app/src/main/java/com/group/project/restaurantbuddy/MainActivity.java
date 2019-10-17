@@ -1,5 +1,6 @@
 package com.group.project.restaurantbuddy;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -28,9 +29,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class  MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
+    /////////////////Database Activity//////////////
+    //Database userDb;
+
+
+    /////////////////Database Activity//////////////
+    //Button signinButton;
+    Button signupButton;
     private AppBarConfiguration mAppBarConfiguration;
 
     @Override
@@ -47,6 +56,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         .setAction("Action", null).show();
             }
         });
+
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -62,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationUI.setupWithNavController(navigationView, navController);
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -106,4 +118,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+//
+//    public void signin() {
+//        Intent intObj = new Intent(this, SignInFragment.class);
+//        startActivity(intObj);
+//
+//
+//    }
+//    public void signup() {
+//        Intent intObj2 = new Intent(this, SignUp.class);
+//        startActivity(intObj2);
+//
+//
+//    }
 }
