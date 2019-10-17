@@ -19,6 +19,7 @@ public class Database extends SQLiteOpenHelper {
     public static final String Col_2 = "name";
     public static final String Col_3 = "email";
     public static final String Col_4 = "phone";
+    public static final String Col_5 = "password";
 
     //Function to create Database table
     public Database(Context context) {
@@ -30,7 +31,7 @@ public class Database extends SQLiteOpenHelper {
     //Executes quary
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + TABLE_NAME +" (ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,EMAIL TEXT,PHONE INTEGER)");
+        db.execSQL("create table " + TABLE_NAME +" (ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,EMAIL TEXT,PHONE INTEGER,PASSWORD TEXT)");
 
     }
 
@@ -40,12 +41,13 @@ public class Database extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertData(String name, String email, String phone) {
+    public boolean insertData(String name, String email, String phone, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(Col_2, name);
         contentValues.put(Col_3, email);
         contentValues.put(Col_4, phone);
+        contentValues.put(Col_5, password);
         long result = db.insert(TABLE_NAME, null, contentValues);
         if(result == -1)
             return false;

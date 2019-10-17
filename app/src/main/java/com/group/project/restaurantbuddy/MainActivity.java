@@ -31,10 +31,10 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class  MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     /////////////////Database Activity//////////////
-    Database userDb;
+    //Database userDb;
 
 
     /////////////////Database Activity//////////////
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         /////////////////Database Activity//////////////
 
-        userDb = new Database(this);
+        //userDb = new Database(this);
 
         /////////////////Database Activity//////////////
 
