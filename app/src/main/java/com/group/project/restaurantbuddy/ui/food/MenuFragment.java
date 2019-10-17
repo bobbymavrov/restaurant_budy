@@ -39,6 +39,6 @@ public class MenuFragment extends Fragment {
         mAdapter = new MyAdapter(myDataset);
         recyclerView.setAdapter(mAdapter);
 
-        return inflater.inflate(R.layout.fragment_menu, container, false);
+        return rootView;
     }
 }
