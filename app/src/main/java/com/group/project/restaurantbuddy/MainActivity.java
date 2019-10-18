@@ -21,7 +21,12 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.navigation.NavigationView;
 import com.group.project.restaurantbuddy.ui.food.MenuFragment;
 import com.group.project.restaurantbuddy.ui.home.HomeFragment;
+
 import com.group.project.restaurantbuddy.ui.food.MyAdapter;
+
+
+import com.group.project.restaurantbuddy.ui.payment.PaymentFragment;
+
 import com.group.project.restaurantbuddy.ui.request.RequestFragment;
 import com.group.project.restaurantbuddy.ui.sign.SignInFragment;
 
@@ -67,7 +72,7 @@ public class  MainActivity extends AppCompatActivity implements NavigationView.O
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_open_menu, R.id.nav_talk,
-                R.id.nav_pay, R.id.nav_share, R.id.nav_sign, R.id.nav_request)
+                R.id.nav_pay, R.id.nav_share, R.id.nav_sign, R.id.nav_request, R.id.payment)
                 .setDrawerLayout(drawer)
                 .build();
 
@@ -113,7 +118,10 @@ public class  MainActivity extends AppCompatActivity implements NavigationView.O
          {
             fragment = new RequestFragment();
          }
-
+        else if (id == R.id.payment)
+        {
+            fragment = new PaymentFragment();
+        }
         //NOTE: Fragment changing code
         if (fragment != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
