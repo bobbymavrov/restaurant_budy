@@ -88,10 +88,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/Sign_Email"
-        android:layout_width="320dp"
-        android:layout_height="32dp"
-
+        android:id="@+id/sign_Email"
+        android:layout_width="339dp"
+        android:layout_height="40dp"
+        android:maxLines="1"
+        android:inputType="text"
         android:layout_marginStart="37dp"
         android:layout_marginLeft="37dp"
         android:layout_marginTop="383dp"
@@ -105,9 +106,10 @@
 
     <EditText
         android:id="@+id/sign_password"
-        android:layout_width="320dp"
-        android:layout_height="32dp"
-
+        android:layout_width="333dp"
+        android:layout_height="40dp"
+        android:maxLines = "1"
+        android:inputType="text"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="495dp"

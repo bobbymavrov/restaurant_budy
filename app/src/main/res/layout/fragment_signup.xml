@@ -159,7 +159,7 @@
         android:id="@+id/editText_Name"
         android:layout_width="385dp"
         android:layout_height="41dp"
-
+        android:maxLines="1"
         android:layout_marginStart="6dp"
         android:layout_marginLeft="6dp"
         android:layout_marginTop="299dp"
@@ -177,7 +177,7 @@
         android:id="@+id/editText_Email"
         android:layout_width="385dp"
         android:layout_height="41dp"
-
+        android:maxLines="1"
         android:layout_marginStart="7dp"
         android:layout_marginLeft="7dp"
         android:layout_marginTop="387dp"
@@ -195,7 +195,7 @@
         android:id="@+id/editText_Phone"
         android:layout_width="385dp"
         android:layout_height="41dp"
-
+        android:maxLines="1"
         android:layout_marginStart="6dp"
         android:layout_marginLeft="6dp"
         android:layout_marginTop="473dp"
@@ -213,7 +213,7 @@
         android:id="@+id/editText_Password"
         android:layout_width="385dp"
         android:layout_height="41dp"
-
+        android:maxLines="1"
         android:layout_marginStart="7dp"
         android:layout_marginLeft="7dp"
         android:layout_marginTop="559dp"
