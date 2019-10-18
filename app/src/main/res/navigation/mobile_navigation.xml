@@ -45,4 +45,9 @@
         android:name="com.group.project.restaurantbuddy.ui.request.RequestFragment"
         android:label="Request"
         tools:layout="@layout/request_fragment"/>
+    <fragment
+        android:id="@id/payment"
+        android:name="com.group.project.restaurantbuddy.ui.payment.PaymentFragment"
+        android:label="Payment"
+        tools:layout="@layout/payment_fragment"/>
 </navigation>
