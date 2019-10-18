@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -53,11 +54,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
             @Override
             public void onClick(View v) {
+                AppCompatActivity activity = (AppCompatActivity) v.getContext();
                 Fragment detailsFragment = new DetailsFragment();
                 if (detailsFragment != null){
 
                     FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction();
-                    ft.replace(R.id.my_recycler_view, detailsFragment);
+                    ft.replace(R.id.nav_home, detailsFragment);
                     ft.addToBackStack(null);
                     ft.commit();
                 }

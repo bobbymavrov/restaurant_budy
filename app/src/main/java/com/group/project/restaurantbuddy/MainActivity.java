@@ -21,6 +21,8 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.navigation.NavigationView;
 import com.group.project.restaurantbuddy.ui.food.MenuFragment;
 import com.group.project.restaurantbuddy.ui.home.HomeFragment;
+import com.group.project.restaurantbuddy.ui.food.MyAdapter;
+import com.group.project.restaurantbuddy.ui.request.RequestFragment;
 import com.group.project.restaurantbuddy.ui.sign.SignInFragment;
 
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -60,11 +62,12 @@ public class  MainActivity extends AppCompatActivity implements NavigationView.O
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.bringToFront();
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_open_menu, R.id.nav_talk,
-                R.id.nav_pay, R.id.nav_share, R.id.nav_sign)
+                R.id.nav_pay, R.id.nav_share, R.id.nav_sign, R.id.nav_request)
                 .setDrawerLayout(drawer)
                 .build();
 
@@ -103,8 +106,13 @@ public class  MainActivity extends AppCompatActivity implements NavigationView.O
         } else if (id == R.id.nav_sign) {
             fragment = new SignInFragment();
         } else if (id == R.id.nav_home) {
+
             fragment = new HomeFragment();
         }
+         else if (id == R.id.nav_request)
+         {
+            fragment = new RequestFragment();
+         }
 
         //NOTE: Fragment changing code
         if (fragment != null) {
