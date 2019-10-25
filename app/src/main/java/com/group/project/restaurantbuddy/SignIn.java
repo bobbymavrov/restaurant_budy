@@ -43,7 +43,7 @@ public class SignIn extends AppCompatActivity {
                     cursor.moveToNext();
                     if(cursor.getCount() > 0){
                         Toast.makeText(getApplicationContext(),"Log in succesfully", Toast.LENGTH_LONG).show();
-                        setContentView(R.layout.fragment_menu);
+                        setContentView(R.layout.activity_main);
                     }
                     else{
                         Toast.makeText(getApplicationContext(),"Error", Toast.LENGTH_LONG).show();
