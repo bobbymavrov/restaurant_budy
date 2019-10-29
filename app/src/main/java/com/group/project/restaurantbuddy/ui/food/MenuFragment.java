@@ -7,11 +7,14 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.group.project.restaurantbuddy.R;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +28,14 @@ public class MenuFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_menu, container, false);
+
+        MenuViewModel menuViewModel = ViewModelProviders.of(this).get(MenuViewModel.class);
+
+        try {
+            List<String[]> items = menuViewModel.loadMenuData("ihop");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         //========Manage Recycler View - Bobby=========
         recyclerView = rootView.findViewById(R.id.my_recycler_view);
