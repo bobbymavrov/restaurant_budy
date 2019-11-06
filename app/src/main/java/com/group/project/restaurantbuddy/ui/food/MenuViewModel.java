@@ -1,25 +1,47 @@
 package com.group.project.restaurantbuddy.ui.food;
 
+import android.app.Application;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.group.project.restaurantbuddy.restaurants.DatabaseConnector;
+import com.group.project.restaurantbuddy.Database;
+import com.group.project.restaurantbuddy.restaurants.DataBaseHelper;
+//import com.group.project.restaurantbuddy.restaurants.DatabaseConnector;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MenuViewModel extends ViewModel {
+public class MenuViewModel extends AndroidViewModel {
 
-    public List<String[]> loadMenuData(String restaurantName) throws SQLException {
+    public MenuViewModel(@NonNull Application application) {
+        super(application);
+    }
+
+    public List<String[]> loadMenuData(String restaurantName) throws SQLException, IOException {
 
         List<String[]> items = new ArrayList<>();
-        DatabaseConnector connector = new DatabaseConnector();
-        Cursor cursor = connector.getRestaurantTable("ihop");
+        DataBaseHelper openHelper = new DataBaseHelper(this.getApplication().getApplicationContext());
+       // openHelper.createDataBase();
+        openHelper.openDataBase();
+        SQLiteDatabase userDb = openHelper.getReadableDatabase();
+        String path = userDb.getPath();
+        boolean temp = userDb.isOpen();
+        int version = userDb.getVersion();
+
+        //userDb = openHelper.getReadableDatabase();
+        Cursor cursor = userDb.rawQuery("SELECT * FROM ihop", null);
+       // DatabaseConnector connector = new DatabaseConnector();
+        //Cursor cursor = connector.getRestaurantTable("ihop", getApplication());
         int columnsCount = cursor.getColumnCount();
 
         while(cursor.moveToNext()){

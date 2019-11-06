@@ -30,10 +30,11 @@ public class MenuFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_menu, container, false);
 
         MenuViewModel menuViewModel = ViewModelProviders.of(this).get(MenuViewModel.class);
+        List<String[]> items = new ArrayList<>();
 
         try {
-            List<String[]> items = menuViewModel.loadMenuData("ihop");
-        } catch (SQLException e) {
+            items = menuViewModel.loadMenuData("ihop");
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
