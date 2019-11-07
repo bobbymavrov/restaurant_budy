@@ -1,17 +1,21 @@
 package com.group.project.restaurantbuddy.ui.food;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.group.project.restaurantbuddy.Database;
 import com.group.project.restaurantbuddy.R;
+import com.group.project.restaurantbuddy.ui.ItemDetailsActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -19,6 +23,7 @@ import java.util.List;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private List<String[]> mDataset;
     private FragmentActivity activity;
+    public int num = 0;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -29,6 +34,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public TextView descriptionTextView;
         public TextView priceTextView;
         public ImageView imageView;
+        public View parentView;
+
 
         public MyViewHolder(View view) {
 
@@ -37,6 +44,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             descriptionTextView = view.findViewById(R.id.menu_item_description);
             priceTextView = view.findViewById(R.id.menu_item_price);
             imageView = view.findViewById(R.id.menu_item_image);
+            parentView = view.findViewById(R.id.menu_item_parent);
         }
     }
 
@@ -63,10 +71,21 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
+        num = position;
         holder.titleTextView.setText(mDataset.get(position)[0]);
         holder.descriptionTextView.setText(mDataset.get(position)[2]);
         holder.priceTextView.setText(mDataset.get(position)[1]);
         Glide.with(holder.imageView).load(mDataset.get(position)[3]).into(holder.imageView);
+
+        holder.parentView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity.getApplicationContext(), ItemDetailsActivity.class);
+                intent.putExtra("detailsArray", mDataset.get(num));
+                v.getContext().startActivity(intent);
+            }
+        });
+
        // Picasso.get().load("https://square.github.io/picasso/static/sample.png").into(holder.imageView);
         //holder.imageView.setImageURI(Uri.parse(mDataset.get(position)[3]));
       //  holder.imageView.setImageResource(R.drawable.hotel_chef_icons_83240);

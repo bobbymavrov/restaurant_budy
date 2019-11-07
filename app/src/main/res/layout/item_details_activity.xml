@@ -1,44 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/menu_item_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingBottom="@dimen/menu_item_padding_bottom"
-    android:paddingLeft="@dimen/menu_recycler_padding_sides"
-    android:paddingRight="@dimen/menu_recycler_padding_sides">
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/details_image"
+        android:layout_width="713dp"
+        android:layout_height="1176dp"
+        android:layout_marginBottom="108dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/group" />
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="300dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
         <TextView
-            android:id="@+id/menu_item_title"
+            android:id="@+id/details_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/menu_items_title"
             android:paddingBottom="@dimen/menu_item_padding_title"/>
         <TextView
-            android:id="@+id/menu_item_description"
+            android:id="@+id/details_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/menu_items_description"
             android:paddingBottom="@dimen/menu_item_padding_description"/>
         <TextView
-            android:id="@+id/menu_item_price"
+            android:id="@+id/details_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/menu_items_price"
             android:paddingBottom="@dimen/menu_item_padding_description"/>
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/menu_item_image"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:adjustViewBounds="true" />
-</LinearLayout>
 
+</androidx.constraintlayout.widget.ConstraintLayout>
