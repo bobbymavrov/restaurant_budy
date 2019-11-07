@@ -2,6 +2,7 @@ package com.group.project.restaurantbuddy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
@@ -36,19 +37,31 @@ public class SignIn extends AppCompatActivity {
             public void onClick(View v) {
                 String _email = email.getText().toString();
                 String _pass = password.getText().toString();
+
                 cursor = userDb.rawQuery("SELECT * FROM " + Database.TABLE_NAME
                         + " WHERE " + Database.Col_3
                         + " =? AND " + Database.Col_5 + " =? ", new String[]{_email,_pass} );
+                // String username = cursor.getString(cursor.getColumnIndex("name"));
                 if(cursor !=null){
+
                     cursor.moveToNext();
+
                     if(cursor.getCount() > 0){
+                        String Id = cursor.getString(0);
+
+                        Intent intent = new Intent (SignIn.this, MainPage.class);
+
                         Toast.makeText(getApplicationContext(),"Log in succesfully", Toast.LENGTH_LONG).show();
-                        setContentView(R.layout.activity_main);
+                       // Toast.makeText(getApplicationContext(),Id, Toast.LENGTH_LONG).show();
+
+                        intent.putExtra("ID",Id);
+                        startActivity(intent);
                     }
                     else{
                         Toast.makeText(getApplicationContext(),"Error", Toast.LENGTH_LONG).show();
                     }
                 }
+                cursor.close();
             }
         });
 
