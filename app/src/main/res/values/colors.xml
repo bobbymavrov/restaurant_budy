@@ -6,4 +6,7 @@
     <color name="colorAccent">#D81B60</color>
     <color name="black_overlay">#66000000</color>
     <color name="menu_items_background">#ffffff</color>
+    <color name="menu_items_title">#202020</color>
+    <color name="menu_items_description">#727272</color>
+    <color name="menu_items_price">#707070</color>
 </resources>

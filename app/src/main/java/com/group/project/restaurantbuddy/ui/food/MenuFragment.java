@@ -13,8 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.group.project.restaurantbuddy.R;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,41 +36,12 @@ public class MenuFragment extends Fragment {
             e.printStackTrace();
         }
 
-        //========Manage Recycler View - Bobby=========
         recyclerView = rootView.findViewById(R.id.my_recycler_view);
-        // use a linear layout manager
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-
-        // specify an adapter (see also next example)
-
-        List<Integer> imageList = new ArrayList<>();
-        addImagesToList(imageList);
-
         mAdapter = new MyAdapter(itemsList, getActivity());
         recyclerView.setAdapter(mAdapter);
 
         return rootView;
-    }
-
-    private void addImagesToList(List<Integer> imageList){
-
-        imageList.add(R.drawable.menu1_01);
-        imageList.add(R.drawable.menu1_03);
-        imageList.add(R.drawable.menu1_04);
-        imageList.add(R.drawable.menu1_06);
-        imageList.add(R.drawable.menu2_01);
-        imageList.add(R.drawable.menu2_02);
-        imageList.add(R.drawable.menu2_05);
-        imageList.add(R.drawable.menu2_08);
-        imageList.add(R.drawable.menu3_01);
-        imageList.add(R.drawable.menu3_03);
-        imageList.add(R.drawable.menu3_06);
-        imageList.add(R.drawable.menu3_07);
-        imageList.add(R.drawable.menu4_01);
-        imageList.add(R.drawable.menu4_04);
-        imageList.add(R.drawable.menu4_06);
-        imageList.add(R.drawable.menu4_08);
-
     }
 }

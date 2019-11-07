@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/menu_item"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
-    android:background="@color/menu_items_background">
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/menu_item_padding_bottom"
+    android:paddingLeft="@dimen/menu_recycler_padding_sides"
+    android:paddingRight="@dimen/menu_recycler_padding_sides"
+    app:cardBackgroundColor="@color/menu_items_background"
+    app:cardCornerRadius="3dp">
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -16,16 +20,21 @@
         <TextView
             android:id="@+id/menu_item_title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textColor="@color/menu_items_title"
+            android:paddingBottom="@dimen/menu_item_padding_title"/>
         <TextView
             android:id="@+id/menu_item_description"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textColor="@color/menu_items_description"
+            android:paddingBottom="@dimen/menu_item_padding_description"/>
         <TextView
             android:id="@+id/menu_item_price"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
+            android:layout_height="wrap_content"
+            android:textColor="@color/menu_items_price"
+            android:paddingBottom="@dimen/menu_item_padding_description"/>
     </LinearLayout>
 
     <ImageView
