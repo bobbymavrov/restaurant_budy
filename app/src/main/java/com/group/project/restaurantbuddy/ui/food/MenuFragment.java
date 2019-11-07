@@ -30,10 +30,10 @@ public class MenuFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_menu, container, false);
 
         MenuViewModel menuViewModel = ViewModelProviders.of(this).get(MenuViewModel.class);
-        List<String[]> items = new ArrayList<>();
+        List<String[]> itemsList = new ArrayList<>();
 
         try {
-            items = menuViewModel.loadMenuData("ihop");
+            itemsList = menuViewModel.loadMenuData("ihop");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -49,7 +49,7 @@ public class MenuFragment extends Fragment {
         List<Integer> imageList = new ArrayList<>();
         addImagesToList(imageList);
 
-        mAdapter = new MyAdapter(imageList, getActivity());
+        mAdapter = new MyAdapter(itemsList, getActivity());
         recyclerView.setAdapter(mAdapter);
 
         return rootView;

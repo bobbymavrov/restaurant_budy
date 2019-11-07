@@ -15,15 +15,14 @@ import android.util.Log;
 public class DataBaseHelper extends SQLiteOpenHelper {
 
     private static String TAG = "DataBaseHelper"; // Tag just for the LogCat window
-    private static String DB_NAME = "Restaurants.db"; // Database name
     private static int DB_VERSION = 1; // Database version
     private final File DB_FILE;
     private SQLiteDatabase mDataBase;
     private final Context mContext;
 
     public DataBaseHelper(Context context) {
-        super(context, DB_NAME, null, DB_VERSION);
-        DB_FILE = context.getDatabasePath(DB_NAME);
+        super(context, "Restraurants.db", null, DB_VERSION);
+        DB_FILE = context.getDatabasePath("Restraurants.db");
         this.mContext = context;
     }
 
@@ -41,7 +40,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     // Copy the database from assets
     private void copyDataBase() throws IOException {
-        InputStream mInput = mContext.getAssets().open(DB_NAME);
+        InputStream mInput = mContext.getAssets().open("Restraurants.db");
         OutputStream mOutput = new FileOutputStream(DB_FILE);
         byte[] mBuffer = new byte[1024];
         int mLength;

@@ -31,17 +31,10 @@ public class MenuViewModel extends AndroidViewModel {
 
         List<String[]> items = new ArrayList<>();
         DataBaseHelper openHelper = new DataBaseHelper(this.getApplication().getApplicationContext());
-       // openHelper.createDataBase();
         openHelper.openDataBase();
         SQLiteDatabase userDb = openHelper.getReadableDatabase();
-        String path = userDb.getPath();
-        boolean temp = userDb.isOpen();
-        int version = userDb.getVersion();
 
-        //userDb = openHelper.getReadableDatabase();
         Cursor cursor = userDb.rawQuery("SELECT * FROM ihop", null);
-       // DatabaseConnector connector = new DatabaseConnector();
-        //Cursor cursor = connector.getRestaurantTable("ihop", getApplication());
         int columnsCount = cursor.getColumnCount();
 
         while(cursor.moveToNext()){
