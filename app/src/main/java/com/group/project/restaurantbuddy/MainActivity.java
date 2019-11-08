@@ -21,6 +21,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.group.project.restaurantbuddy.ui.MakeReservation.MainReservation;
 import com.group.project.restaurantbuddy.ui.food.MenuFragment;
 import com.group.project.restaurantbuddy.ui.home.HomeFragment;
 
@@ -79,7 +80,7 @@ public class  MainActivity extends AppCompatActivity implements NavigationView.O
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_open_menu, R.id.nav_talk,
+                R.id.nav_home, R.id.nav_open_menu, R.id.nav_talk, R.id.mainReservation,
                 R.id.nav_pay, R.id.nav_share, R.id.nav_sign, R.id.nav_request, R.id.payment)
                 .setDrawerLayout(drawer)
                 .build();
@@ -123,6 +124,9 @@ public class  MainActivity extends AppCompatActivity implements NavigationView.O
         } else if (id == R.id.nav_home) {
 
             fragment = new HomeFragment();
+        }
+        else if(id == R.id.mainReservation){
+            fragment = new MainReservation();
         }
          else if (id == R.id.nav_request)
          {

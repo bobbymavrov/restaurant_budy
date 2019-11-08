@@ -14,6 +14,7 @@
         <activity android:name=".MainPage" />
         <activity android:name=".Payment" />
         <activity android:name=".Request" />
+        <activity android:name=".FindTable"></activity>
         <activity
             android:name=".SignUp"
             android:label="@string/title_activity_sign_up"
