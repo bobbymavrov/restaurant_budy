@@ -1,21 +1,15 @@
 package com.group.project.restaurantbuddy.restaurants;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
 import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
+
+import java.io.File;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
 
-    private static String TAG = "DataBaseHelper"; // Tag just for the LogCat window
-    private static int DB_VERSION = 1; // Database version
+    private static int DB_VERSION = 1;
     private final File DB_FILE;
     private SQLiteDatabase mDataBase;
     private final Context mContext;
@@ -26,37 +20,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         this.mContext = context;
     }
 
-    public void createDataBase() throws IOException {
-        // If the database does not exist, copy it from the assets.
-      //  boolean mDataBaseExist = checkDataBase();
-       copyDataBase();
-
-    }
-
-    // Check that the database file exists in databases folder
-    private boolean checkDataBase() {
-        return DB_FILE.exists();
-    }
-
-    // Copy the database from assets
-    private void copyDataBase() throws IOException {
-        InputStream mInput = mContext.getAssets().open("Restraurants.db");
-        OutputStream mOutput = new FileOutputStream(DB_FILE);
-        byte[] mBuffer = new byte[1024];
-        int mLength;
-        while ((mLength = mInput.read(mBuffer)) > 0) {
-            mOutput.write(mBuffer, 0, mLength);
-        }
-        mOutput.flush();
-        mOutput.close();
-        mInput.close();
-    }
-
-    // Open the database, so we can query it
     public boolean openDataBase() throws SQLException {
-        // Log.v("DB_PATH", DB_FILE.getAbsolutePath());
         mDataBase = SQLiteDatabase.openDatabase(DB_FILE.getPath(), null, SQLiteDatabase.OPEN_READONLY);
-        // mDataBase = SQLiteDatabase.openDatabase(DB_FILE, null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
         return mDataBase != null;
     }
 

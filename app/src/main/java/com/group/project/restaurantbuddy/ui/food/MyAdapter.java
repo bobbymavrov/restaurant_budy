@@ -23,7 +23,6 @@ import java.util.List;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private List<String[]> mDataset;
     private FragmentActivity activity;
-    public int num = 0;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -69,29 +68,21 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
 
-        num = position;
         holder.titleTextView.setText(mDataset.get(position)[0]);
         holder.descriptionTextView.setText(mDataset.get(position)[2]);
-        holder.priceTextView.setText(mDataset.get(position)[1]);
+        holder.priceTextView.setText("$" + mDataset.get(position)[1]);
         Glide.with(holder.imageView).load(mDataset.get(position)[3]).into(holder.imageView);
 
         holder.parentView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity.getApplicationContext(), ItemDetailsActivity.class);
-                intent.putExtra("detailsArray", mDataset.get(num));
+                Intent intent = new Intent(v.getContext(), ItemDetailsActivity.class);
+                intent.putExtra("detailsArray", mDataset.get(position));
                 v.getContext().startActivity(intent);
             }
         });
-
-       // Picasso.get().load("https://square.github.io/picasso/static/sample.png").into(holder.imageView);
-        //holder.imageView.setImageURI(Uri.parse(mDataset.get(position)[3]));
-      //  holder.imageView.setImageResource(R.drawable.hotel_chef_icons_83240);
-       // int temp = holder.imageView.getMaxHeight();
-       // holder.imageView(mDataset.get(position));
-
     }
 
     // Return the size of your dataset (invoked by the layout manager)
