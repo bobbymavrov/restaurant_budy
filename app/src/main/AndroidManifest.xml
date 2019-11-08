@@ -11,6 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Payment"></activity>
         <activity android:name=".Request" />
+        <activity android:name=".FindTable"></activity>
         <activity
             android:name=".SignUp"
             android:label="@string/title_activity_sign_up"

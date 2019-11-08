@@ -20,6 +20,11 @@
             android:title="@string/menu_sign" />
 
         <item
+            android:id="@+id/mainReservation"
+            android:icon="@drawable/ic_event_note_black_24dp"
+            android:title="Reserve" />
+
+        <item
             android:id="@+id/nav_request"
             android:icon="@drawable/hotel_chef_icons_83240"
             android:title="Request Items"/>
