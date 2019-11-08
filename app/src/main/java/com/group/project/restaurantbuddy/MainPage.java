@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.DatabaseErrorHandler;
 import android.os.Bundle;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -16,11 +17,13 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import com.group.project.restaurantbuddy.R;
-import com.group.project.restaurantbuddy.ui.food.MenuFragment;
-import com.group.project.restaurantbuddy.ui.menu.MenuLoader;
-import com.group.project.restaurantbuddy.ui.payment.PaymentFragment;
+
+import com.group.project.restaurantbuddy.restaurants.DataBaseHelper;
+
+import android.content.Context;
 
 public class MainPage extends AppCompatActivity {
+
     Cursor cursor;
     SQLiteDatabase userDb;
     String user_name;
@@ -30,15 +33,19 @@ public class MainPage extends AppCompatActivity {
     Button order;
     LayoutInflater inflater;
     ViewGroup container;
+    Database insertDb;
+    DataBaseHelper newDb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main_page);
+        //Main PAGE BUTTON
         menu = (Button) findViewById(R.id.button_menu);
         menu.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent (MainPage.this, PaymentFragment.class);
+                Intent intent = new Intent (MainPage.this, MenuFragment.class);
                 startActivity(intent);
             }
 
@@ -64,6 +71,8 @@ public class MainPage extends AppCompatActivity {
         openHelper = new Database(this);
         userDb = openHelper.getReadableDatabase();
 
+
+        //SHOW USER NAME
         Intent intent = getIntent();
         String _Id = intent.getStringExtra("ID");
 
@@ -87,5 +96,27 @@ public class MainPage extends AppCompatActivity {
             }
         }
 
+
+
+    }
+
+    //will be MODIFIED later
+    public void addData(){
+        Intent intent = getIntent();
+        String _Id = intent.getStringExtra("ID");
+        SQLiteDatabase _db =newDb.getReadableDatabase();
+
+
+//        cursor = userDb.rawQuery("SELECT * FROM " + Database.TABLE_NAME
+//                + " WHERE " + Database.Col_3
+//                + " =? AND " + Database.Col_5 + " =? ", new String[]{_email,_pass} );
+//       cursor =  _db.rawQuery("SELECT * FROM " + )
+//
+//        string _order1;
+//        string _order2;
+//        string _order3;
+//        string _order4;
+//        string _order5;
+//        boolean isInserted = insertDb.insertOrderData(_Id,_order1,_order2,_order3,_order4,_order5);
     }
 }

@@ -102,11 +102,11 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="295dp"
-        android:layout_marginLeft="295dp"
+        android:layout_marginStart="274dp"
+        android:layout_marginLeft="274dp"
         android:layout_marginTop="258dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginRight="46dp"
         android:layout_marginBottom="439dp"
         android:text="Request"
         android:textColor="@android:color/white"
@@ -201,33 +201,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView22"
-        android:layout_width="361dp"
-        android:layout_height="151dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="383dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginBottom="197dp"
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="400dp"
+        android:layout_height="439dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginRight="22dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/menu2_08" />
+        app:layout_constraintTop_toBottomOf="@+id/textView14">
 
-    <ImageView
-        android:id="@+id/imageView23"
-        android:layout_width="361dp"
-        android:layout_height="151dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="552dp"
-        android:layout_marginBottom="28dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/menu2_08" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/recent_item_name"
+                android:layout_width="275dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="100dp"
+                android:text="Your recent order"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/recent_item_des"
+                android:layout_width="350dp"
+                android:layout_height="75dp"
+                android:layout_marginTop="5dp"
+                android:text="Your recent order"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/recent_item_price"
+                android:layout_width="275dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp"
+                android:text="Your recent order"
+                android:textSize="20sp" />
+
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
