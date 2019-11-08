@@ -9,5 +9,9 @@
     <dimen name="menu_item_padding_bottom">20dp</dimen>
     <dimen name="menu_item_padding_title">20dp</dimen>
     <dimen name="menu_item_padding_description">15dp</dimen>
+    <dimen name="item_details_margin">15dp</dimen>
+    <dimen name="menu_item_title_size">15sp</dimen>
+    <dimen name="menu_details_title_size">18sp</dimen>
+
 
 </resources>

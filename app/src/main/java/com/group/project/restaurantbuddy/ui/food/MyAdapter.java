@@ -1,17 +1,21 @@
 package com.group.project.restaurantbuddy.ui.food;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.group.project.restaurantbuddy.Database;
 import com.group.project.restaurantbuddy.R;
+import com.group.project.restaurantbuddy.ui.ItemDetailsActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -29,6 +33,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public TextView descriptionTextView;
         public TextView priceTextView;
         public ImageView imageView;
+        public View parentView;
+
 
         public MyViewHolder(View view) {
 
@@ -37,6 +43,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             descriptionTextView = view.findViewById(R.id.menu_item_description);
             priceTextView = view.findViewById(R.id.menu_item_price);
             imageView = view.findViewById(R.id.menu_item_image);
+            parentView = view.findViewById(R.id.menu_item_parent);
         }
     }
 
@@ -61,18 +68,21 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
 
         holder.titleTextView.setText(mDataset.get(position)[0]);
         holder.descriptionTextView.setText(mDataset.get(position)[2]);
-        holder.priceTextView.setText(mDataset.get(position)[1]);
+        holder.priceTextView.setText("$" + mDataset.get(position)[1]);
         Glide.with(holder.imageView).load(mDataset.get(position)[3]).into(holder.imageView);
-       // Picasso.get().load("https://square.github.io/picasso/static/sample.png").into(holder.imageView);
-        //holder.imageView.setImageURI(Uri.parse(mDataset.get(position)[3]));
-      //  holder.imageView.setImageResource(R.drawable.hotel_chef_icons_83240);
-       // int temp = holder.imageView.getMaxHeight();
-       // holder.imageView(mDataset.get(position));
 
+        holder.parentView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), ItemDetailsActivity.class);
+                intent.putExtra("detailsArray", mDataset.get(position));
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 
     // Return the size of your dataset (invoked by the layout manager)
