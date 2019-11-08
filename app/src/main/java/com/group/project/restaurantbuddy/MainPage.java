@@ -2,7 +2,7 @@ package com.group.project.restaurantbuddy;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.fragment.app.Fragment;
 import android.app.Application;
 import android.content.Intent;
 import android.database.Cursor;
@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import com.group.project.restaurantbuddy.R;
+import com.group.project.restaurantbuddy.ui.details.DetailsFragment;
 import com.group.project.restaurantbuddy.ui.food.MenuFragment;
 import com.group.project.restaurantbuddy.restaurants.DataBaseHelper;
 
@@ -45,11 +46,11 @@ public class MainPage extends AppCompatActivity {
 
         setContentView(R.layout.activity_main_page);
         //Main PAGE BUTTON
-        menu = (Button) findViewById(R.id.button_menu);
+//        menu = (Button) findViewById(R.id.button_menu);
 //        menu.setOnClickListener(new View.OnClickListener(){
 //            @Override
 //            public void onClick(View v){
-//                Intent intent = new Intent (MainPage.this, MenuFragment.class);
+//                Intent intent = new Intent (MainPage.this, com.group.project.restaurantbuddy.ui.details.DetailsFragment.class);
 //                startActivity(intent);
 //            }
 //
