@@ -2,12 +2,16 @@ package com.group.project.restaurantbuddy;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.ListMenuItemView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.group.project.restaurantbuddy.ui.food.MenuFragment;
+
 import android.app.Application;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.DatabaseErrorHandler;
-import android.database.SQLException;
+
 import android.os.Bundle;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -19,17 +23,14 @@ import android.view.View;
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.LayoutInflater;
-import com.group.project.restaurantbuddy.R;
-import com.group.project.restaurantbuddy.ui.details.DetailsFragment;
-import com.group.project.restaurantbuddy.ui.food.MenuFragment;
+
 import com.group.project.restaurantbuddy.restaurants.DataBaseHelper;
+import androidx.fragment.app.Fragment;
 
-import android.content.Context;
 
-import java.io.IOException;
-
+import android.view.LayoutInflater;
 public class MainPage extends AppCompatActivity {
-
+    ViewGroup container;
     Cursor cursor;
     SQLiteDatabase userDb;
     String user_name;
@@ -37,24 +38,27 @@ public class MainPage extends AppCompatActivity {
     Button menu;
     Button request;
     Button order;
-
+    LayoutInflater inflater;
     Database insertDb;
     DataBaseHelper newDb;
-    @Override
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main_page);
-        //Main PAGE BUTTON
-//        menu = (Button) findViewById(R.id.button_menu);
-//        menu.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-//                Intent intent = new Intent (MainPage.this, com.group.project.restaurantbuddy.ui.details.DetailsFragment.class);
-//                startActivity(intent);
-//            }
-//
-//        });
+      //  Main PAGE BUTTON
+        menu = (Button) findViewById(R.id.button_menu);
+        menu.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Fragment fragment  = null;
+                fragment = new MenuFragment();
+                getSupportFragmentManager().beginTransaction();
+
+            }
+
+        });
         request = (Button) findViewById(R.id.button_request);
         request.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -109,33 +113,37 @@ public class MainPage extends AppCompatActivity {
     }
 
     //will be MODIFIED later
-    public void addData(){
-        Intent intent1 = getIntent();
-        String Id1 = intent1.getStringExtra("ID");
+//    public void addData(){
+//        Intent intent1 = getIntent();
+//        String Id1 = intent1.getStringExtra("ID");
+//
+//        newDb = new DataBaseHelper(this.getApplication().getApplicationContext());
+//        newDb.openDataBase();
+//       userDb = newDb.getReadableDatabase();
+//
+//        cursor = userDb.rawQuery(" SELECT * FROM ihop ", null);
+//
+//        if(cursor != null) {
+//            cursor.moveToNext();
+//            if(cursor.getCount() > 0) {
+//                String order1 = "HI";
+//                String order2 = cursor.getString(1);
+//                String order3 = cursor.getString(1);
+//                String order4 = cursor.getString(1);
+//                String order5 = cursor.getString(1);
+//                boolean isInserted = insertDb.insertOrderData(Id1,order1,order2,order3,order4,order5);
+//                if (isInserted = true)
+//                    Toast.makeText(MainPage.this, "Data Inserted", Toast.LENGTH_LONG).show();
+//                else
+//                    Toast.makeText(MainPage.this, "Data not Inserted", Toast.LENGTH_LONG).show();
+//
+//            }
+//        }
+//
+//
+//    }
 
-        newDb = new DataBaseHelper(this.getApplication().getApplicationContext());
-        newDb.openDataBase();
-       userDb = newDb.getReadableDatabase();
-
-        cursor = userDb.rawQuery(" SELECT * FROM ihop ", null);
-
-        if(cursor != null) {
-            cursor.moveToNext();
-            if(cursor.getCount() > 0) {
-                String order1 = "HI";
-                String order2 = cursor.getString(1);
-                String order3 = cursor.getString(1);
-                String order4 = cursor.getString(1);
-                String order5 = cursor.getString(1);
-                boolean isInserted = insertDb.insertOrderData(Id1,order1,order2,order3,order4,order5);
-                if (isInserted = true)
-                    Toast.makeText(MainPage.this, "Data Inserted", Toast.LENGTH_LONG).show();
-                else
-                    Toast.makeText(MainPage.this, "Data not Inserted", Toast.LENGTH_LONG).show();
-
-            }
-        }
 
 
-    }
-}
+
+};
