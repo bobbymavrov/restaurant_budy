@@ -60,7 +60,7 @@ public class MainPage extends AppCompatActivity {
                 FragmentManager manager = getSupportFragmentManager();
 
                 MenuFragment fragment = new MenuFragment();
-                manager.beginTransaction().remove(manager.findFragmentById(R.id.fragment_container)).replace(R.id.fragment_container,fragment).commit();
+                manager.beginTransaction().replace(R.id.fragment_container,fragment).commit();
                 //manager.beginTransaction().remove(manager.findFragmentById(R.id.fragment_container)).commit();
 
             }

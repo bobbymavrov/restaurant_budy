@@ -209,22 +209,6 @@
         app:layout_constraintTop_toTopOf="parent"
          />
 
-    <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="126dp"
-        android:layout_height="106dp"
-        android:layout_marginStart="251dp"
-        android:layout_marginLeft="251dp"
-        android:layout_marginTop="227dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginRight="34dp"
-        android:layout_marginBottom="398dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/fork" />
-
     <TextView
         android:id="@+id/cart_description"
         android:layout_width="196dp"
@@ -239,25 +223,10 @@
         android:textColor="@color/menu_items_price"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/cart_description2"
-        android:layout_width="196dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginLeft="29dp"
-        android:layout_marginTop="260dp"
-        android:layout_marginEnd="186dp"
-        android:layout_marginRight="186dp"
-        android:layout_marginBottom="428dp"
-        android:text="Price"
-        android:textColor="@color/menu_items_price"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/cart_price"
@@ -273,25 +242,10 @@
         android:textColor="@color/menu_items_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/cart_price2"
-        android:layout_width="72dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginLeft="29dp"
-        android:layout_marginTop="303dp"
-        android:layout_marginEnd="310dp"
-        android:layout_marginRight="310dp"
-        android:layout_marginBottom="404dp"
-        android:text="Description"
-        android:textColor="@color/menu_items_description"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/cart_title"
@@ -304,24 +258,6 @@
         android:layout_marginRight="186dp"
         android:layout_marginBottom="599dp"
 
-        android:textColor="@color/menu_items_title"
-        android:textSize="@dimen/menu_details_title_size"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/cart_title2"
-        android:layout_width="196dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginLeft="29dp"
-        android:layout_marginTop="235dp"
-        android:layout_marginEnd="186dp"
-        android:layout_marginRight="186dp"
-        android:layout_marginBottom="471dp"
-        android:text="Title"
         android:textColor="@color/menu_items_title"
         android:textSize="@dimen/menu_details_title_size"
         app:layout_constraintBottom_toBottomOf="parent"

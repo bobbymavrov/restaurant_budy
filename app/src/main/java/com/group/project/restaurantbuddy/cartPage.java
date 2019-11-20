@@ -20,19 +20,11 @@ public class cartPage extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart_page);
-        submit = (Button) findViewById(R.id.submit_button);
-        if(getIntent().hasExtra("Add_cart")){
-            String[] details = getIntent().getStringArrayExtra("Add_cart");
-            TextView title = findViewById(R.id.cart_title);
-            TextView description = findViewById(R.id.cart_description);
-            TextView price = findViewById(R.id.cart_price);
-            ImageView image = findViewById(R.id.details_image);
+        
 
-            title.setText(details[0]);
-            description.setText(details[2]);
-            price.setText("$" + details[1]);
-            Glide.with(this).load(details[3]).into(image);
-        }
+        getIncomingIntent();
+        submit = (Button) findViewById(R.id.submit_button);
+
 
 
         submit.setOnClickListener(new View.OnClickListener(){
@@ -42,5 +34,23 @@ public class cartPage extends AppCompatActivity {
             }
 
         });
+
+
+
+    }
+
+
+    private void getIncomingIntent(){
+        if(getIntent().hasExtra("Add_Cart")){
+            String details = getIntent().getStringExtra("Add_Cart");
+            Toast.makeText(getApplicationContext(),details, Toast.LENGTH_LONG).show();
+            TextView title = findViewById(R.id.cart_title);
+            TextView description = findViewById(R.id.cart_description);
+            TextView price = findViewById(R.id.cart_price);
+            ImageView image = findViewById(R.id.details_image);
+
+            description.setText(details);
+
+        }
     }
 }

@@ -11,19 +11,37 @@ import com.group.project.restaurantbuddy.R;
 import com.group.project.restaurantbuddy.cartPage;
 
 import android.content.Intent;
-public class ItemDetailsActivity extends AppCompatActivity {
+import android.widget.Toast;
 
+public class ItemDetailsActivity extends AppCompatActivity {
+    Button addCart;
+    String[] details;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.item_details_activity);
 
         getIncomingIntent();
-        add_to_Cart();
+        addCart = (Button) findViewById(R.id.add_to_cart);
+        addCart.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+
+                Intent intent = new Intent (ItemDetailsActivity.this, cartPage.class);
+                String _detail = details[0];
+
+                    intent.putExtra("Add_Cart", _detail);
+                Toast.makeText(getApplicationContext(),_detail, Toast.LENGTH_LONG).show();
+                    startActivity(intent);
+
+            }
+
+        });
+
     }
 
     private void getIncomingIntent(){
         if(getIntent().hasExtra("detailsArray")){
-            String[] details = getIntent().getStringArrayExtra("detailsArray");
+            details = getIntent().getStringArrayExtra("detailsArray");
             TextView title = findViewById(R.id.details_title);
             TextView description = findViewById(R.id.details_description);
             TextView price = findViewById(R.id.details_price);
@@ -38,7 +56,7 @@ public class ItemDetailsActivity extends AppCompatActivity {
 
 //Abby add button
     private void add_to_Cart(){
-       Button addCart = findViewById(R.id.add_to_cart);
+
        Intent intent = new Intent (ItemDetailsActivity.this, cartPage.class);
        String[] de = getIntent().getStringArrayExtra("details");
         intent.putExtra("Add_Cart",de);
