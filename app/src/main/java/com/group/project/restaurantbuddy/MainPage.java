@@ -4,11 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.ListMenuItemView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.group.project.restaurantbuddy.ui.food.MenuFragment;
 
 import android.app.Application;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.database.Cursor;
 
@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Button;
@@ -25,8 +26,11 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 
 import com.group.project.restaurantbuddy.restaurants.DataBaseHelper;
-import androidx.fragment.app.Fragment;
+import com.group.project.restaurantbuddy.ui.home.HomeFragment;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import com.group.project.restaurantbuddy.ui.food.MenuFragment;
 
 import android.view.LayoutInflater;
 public class MainPage extends AppCompatActivity {
@@ -41,7 +45,7 @@ public class MainPage extends AppCompatActivity {
     LayoutInflater inflater;
     Database insertDb;
     DataBaseHelper newDb;
-
+    private static final int CONTENT_VIEW_ID = 101010;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,9 +56,12 @@ public class MainPage extends AppCompatActivity {
         menu.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Fragment fragment  = null;
-                fragment = new MenuFragment();
-                getSupportFragmentManager().beginTransaction();
+
+                FragmentManager manager = getSupportFragmentManager();
+
+                MenuFragment fragment = new MenuFragment();
+                manager.beginTransaction().remove(manager.findFragmentById(R.id.fragment_container)).replace(R.id.fragment_container,fragment).commit();
+                //manager.beginTransaction().remove(manager.findFragmentById(R.id.fragment_container)).commit();
 
             }
 
