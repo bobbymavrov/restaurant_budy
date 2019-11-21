@@ -15,4 +15,11 @@ public class CardData {
         return cardData;
     }
 
+    public static boolean emptyCard(){
+        cardData.clear();
+        if (cardData.isEmpty())
+            return true;
+        return false;
+    }
+
 }
