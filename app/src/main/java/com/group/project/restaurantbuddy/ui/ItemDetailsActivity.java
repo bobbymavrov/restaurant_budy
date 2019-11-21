@@ -7,6 +7,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import com.bumptech.glide.Glide;
+import com.group.project.restaurantbuddy.MyApplication;
 import com.group.project.restaurantbuddy.R;
 import com.group.project.restaurantbuddy.cartPage;
 
@@ -26,12 +27,14 @@ public class ItemDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
 
-                Intent intent = new Intent (ItemDetailsActivity.this, cartPage.class);
-                String _detail = details[0];
+               // Intent intent = new Intent (ItemDetailsActivity.this, cartPage.class);
+               // String _detail = details[0];
+                MyApplication app =(MyApplication) getApplication();
+                app.setOrder(details[0]);
 
-                    intent.putExtra("Add_Cart", _detail);
-                Toast.makeText(getApplicationContext(),_detail, Toast.LENGTH_LONG).show();
-                    startActivity(intent);
+                  //  intent.putExtra("Add_Cart", _detail);
+
+                   // startActivity(intent);
 
             }
 
