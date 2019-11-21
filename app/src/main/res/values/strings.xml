@@ -38,4 +38,12 @@
     <string name="please_enter_custom_request">Please enter custom request</string>
     <string name="please_select_one_of_the_options_below_or_create_your_own_custom_request">Please select one of the options below or create your own custom request.</string>
     <string name="picture">Picture</string>
+
+    <string-array name="num_items">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
 </resources>
