@@ -1,13 +1,13 @@
 package com.group.project.restaurantbuddy;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class reservation extends AppCompatActivity {
 
@@ -17,6 +17,8 @@ public class reservation extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.reservation_page);
 
         textView = findViewById(R.id.text_view_selected);
