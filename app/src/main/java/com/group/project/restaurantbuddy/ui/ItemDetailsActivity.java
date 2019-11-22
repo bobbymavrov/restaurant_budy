@@ -1,6 +1,7 @@
 package com.group.project.restaurantbuddy.ui;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -8,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -80,6 +82,9 @@ public class ItemDetailsActivity extends AppCompatActivity {
                 cardData[4] = Integer.toString(numItems);
                 cardData[5] = Double.toString(totalPrice);
                 CardData.addToCard(cardData);
+                Toast toast = Toast.makeText(getApplicationContext(),String.format("$%s added to your card", totalPrice),Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.TOP, 0, 0);
+                toast.show();
             }
         });
     }
