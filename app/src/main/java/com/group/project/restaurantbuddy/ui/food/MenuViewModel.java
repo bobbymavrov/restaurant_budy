@@ -64,18 +64,14 @@ public class MenuViewModel extends AndroidViewModel {
 
     private void getNearbyPlace(Context context){
 
-        // Initialize the SDK
         Places.initialize(context, "AIzaSyBXm3YJyAKmY_QBGV3Ss7wVq_WYsdMtKUo");
         PlacesClient placesClient = Places.createClient(context);
 
-        // Use fields to define the data types to return.
         List<Place.Field> placeFields = Collections.singletonList(Place.Field.NAME);
 
-// Use the builder to create a FindCurrentPlaceRequest.
         FindCurrentPlaceRequest request =
                 FindCurrentPlaceRequest.newInstance(placeFields);
 
-// Call findCurrentPlace and handle the response (first check that the user has granted permission).
         try {
             if (ContextCompat.checkSelfPermission(context, ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 Task<FindCurrentPlaceResponse> placeResponse = placesClient.findCurrentPlace(request);
@@ -96,9 +92,6 @@ public class MenuViewModel extends AndroidViewModel {
                 });
             } else {
                 Log.e("Places API: ", "Missing Permissions");
-                // A local method to request required permissions;
-                // See https://developer.android.com/training/permissions/requesting
-                // getLocationPermission();
             }
         }catch (Exception e){
             Log.e("Error", e.getMessage());
