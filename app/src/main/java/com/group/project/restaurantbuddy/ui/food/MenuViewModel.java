@@ -36,33 +36,36 @@ public class MenuViewModel extends AndroidViewModel {
         super(application);
     }
 
+    private String closestPlace = "IHOP";
+
     public List<String[]> loadMenuData(String restaurantName) throws SQLException, IOException {
 
-        getNearbyPlaces(this.getApplication().getApplicationContext());
+        getNearbyPlace(this.getApplication().getApplicationContext());
 
-        List<String[]> items = new ArrayList<>();
-        DataBaseHelper openHelper = new DataBaseHelper(this.getApplication().getApplicationContext());
-        openHelper.openDataBase();
-        SQLiteDatabase userDb = openHelper.getReadableDatabase();
+        if(closestPlace.equals("IHOP")) {
+            List<String[]> items = new ArrayList<>();
+            DataBaseHelper openHelper = new DataBaseHelper(this.getApplication().getApplicationContext());
+            openHelper.openDataBase();
+            SQLiteDatabase userDb = openHelper.getReadableDatabase();
 
-        Cursor cursor = userDb.rawQuery("SELECT * FROM ihop", null);
-        int columnsCount = cursor.getColumnCount();
+            Cursor cursor = userDb.rawQuery("SELECT * FROM ihop", null);
+            int columnsCount = cursor.getColumnCount();
 
-        while(cursor.moveToNext()){
-            String[] row = new String[columnsCount];
-            for(int i = 0; i < cursor.getColumnCount(); i ++){
-                row[i] = cursor.getString(i);
+            while (cursor.moveToNext()) {
+                String[] row = new String[columnsCount];
+                for (int i = 0; i < cursor.getColumnCount(); i++) {
+                    row[i] = cursor.getString(i);
+                }
+                items.add(row);
             }
-           items.add(row);
-        }
-        return items;
+            return items;
+        }else {return null;}
     }
 
-    private void getNearbyPlaces(Context context){
+    private void getNearbyPlace(Context context){
 
         // Initialize the SDK
-        Places.initialize(context, "my_key");
-        boolean isInitialized = Places.isInitialized();
+        Places.initialize(context, "AIzaSyBXm3YJyAKmY_QBGV3Ss7wVq_WYsdMtKUo");
         PlacesClient placesClient = Places.createClient(context);
 
         // Use fields to define the data types to return.
@@ -81,8 +84,7 @@ public class MenuViewModel extends AndroidViewModel {
                         FindCurrentPlaceResponse response = task.getResult();
                         for (PlaceLikelihood placeLikelihood : response.getPlaceLikelihoods()) {
                             Log.i("Places API: ", String.format("Place '%s' has likelihood: %f",
-                                    placeLikelihood.getPlace().getName(),
-                                    placeLikelihood.getLikelihood()));
+                                    placeLikelihood.getPlace().getName(), placeLikelihood.getLikelihood()));
                         }
                     } else {
                         Exception exception = task.getException();
