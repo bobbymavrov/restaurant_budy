@@ -68,8 +68,7 @@ public class  MainActivity extends AppCompatActivity implements NavigationView.O
 
 
     /////////////////Database Activity//////////////
-    //Button signinButton;
-    Button signupButton;
+
     private AppBarConfiguration mAppBarConfiguration;
 
     @Override

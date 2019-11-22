@@ -27,6 +27,7 @@
     <string name="spoons">Spoons</string>
 
     <string name="please_request_an_item_from_the_buttons_below_or_make_a_custom_request">Please request an item from the buttons below or make a custom request.</string>
+
     <string name="other">Other</string>
     <string name="water">Water</string>
     <string name="knife">Knife</string>
@@ -38,7 +39,10 @@
     <string name="please_enter_custom_request">Please enter custom request</string>
     <string name="please_select_one_of_the_options_below_or_create_your_own_custom_request">Please select one of the options below or create your own custom request.</string>
     <string name="picture">Picture</string>
-
+    <string name="title_activity_main_page_botton_nav">MainPage_botton_nav</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
     <string-array name="num_items">
         <item>1</item>
         <item>2</item>
