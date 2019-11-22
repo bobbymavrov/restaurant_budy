@@ -49,11 +49,6 @@ import java.io.OutputStream;
 
 public class  MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    /////////////////Database Activity//////////////
-    //Database userDb;
-
-
-    /////////////////Database Activity//////////////
     //Button signinButton;
     Button signupButton;
     private AppBarConfiguration mAppBarConfiguration;

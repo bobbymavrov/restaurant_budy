@@ -25,6 +25,16 @@
     <string name="fork">Fork</string>
 
     <string name="spoons">Spoons</string>
+    
+    
+    <string-array name="tableNumbers">
+        <item>Table 1</item>
+        <item>Table 2</item>
+        <item>Table 3</item>
+        <item>Table 4</item>
+        <item>Table 5</item>
+        <item>Table 5</item>
+    </string-array>
 
     <string name="please_request_an_item_from_the_buttons_below_or_make_a_custom_request">Please request an item from the buttons below or make a custom request.</string>
     <string name="other">Other</string>
