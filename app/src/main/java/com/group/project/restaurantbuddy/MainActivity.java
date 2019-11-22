@@ -105,7 +105,7 @@ public class  MainActivity extends AppCompatActivity implements NavigationView.O
 
         loadDatabases();
 
-        if (ContextCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
                     new String[]{ACCESS_FINE_LOCATION}, 1000);
         }

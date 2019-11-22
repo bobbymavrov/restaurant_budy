@@ -61,7 +61,8 @@ public class MenuViewModel extends AndroidViewModel {
     private void getNearbyPlaces(Context context){
 
         // Initialize the SDK
-        Places.initialize(context, "AIzaSyBXm3YJyAKmY_QBGV3Ss7wVq_WYsdMtKUo");
+        Places.initialize(context, "my_key");
+        boolean isInitialized = Places.isInitialized();
         PlacesClient placesClient = Places.createClient(context);
 
         // Use fields to define the data types to return.
