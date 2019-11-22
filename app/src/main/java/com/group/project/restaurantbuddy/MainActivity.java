@@ -63,6 +63,8 @@ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 public class  MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
+
+    Button signupButton;
     /////////////////Database Activity//////////////
     //Database userDb;
 

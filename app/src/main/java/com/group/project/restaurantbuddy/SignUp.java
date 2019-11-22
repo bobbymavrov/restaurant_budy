@@ -35,8 +35,6 @@ public class SignUp extends AppCompatActivity {
 
     }
 
-
-
     public void AddData(){
         btnAddData.setOnClickListener(
                 new View.OnClickListener(){
