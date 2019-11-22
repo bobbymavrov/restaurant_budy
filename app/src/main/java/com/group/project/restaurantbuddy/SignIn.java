@@ -1,6 +1,7 @@
 package com.group.project.restaurantbuddy;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.database.Cursor;
 import android.widget.Toast;
+import android.app.Application;
+import com.group.project.restaurantbuddy.ui.food.MenuFragment;
 
 public class SignIn extends AppCompatActivity {
 
@@ -49,13 +52,18 @@ public class SignIn extends AppCompatActivity {
                     if(cursor.getCount() > 0){
                         String Id = cursor.getString(0);
 
-                        Intent intent = new Intent (SignIn.this, MainPage.class);
+                        Intent intent = new Intent (SignIn.this, MainPage_botton_nav.class);
 
                         Toast.makeText(getApplicationContext(),"Log in succesfully", Toast.LENGTH_LONG).show();
                        // Toast.makeText(getApplicationContext(),Id, Toast.LENGTH_LONG).show();
 
                         intent.putExtra("ID",Id);
+                   MyApplication app = (MyApplication) getApplication();
+
+                    app.setId(Id);
+
                         startActivity(intent);
+
                     }
                     else{
                         Toast.makeText(getApplicationContext(),"Error", Toast.LENGTH_LONG).show();
