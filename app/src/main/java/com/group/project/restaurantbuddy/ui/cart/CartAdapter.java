@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.group.project.restaurantbuddy.R;
 import com.group.project.restaurantbuddy.ui.ItemDetailsActivity;
 
@@ -37,7 +38,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
             super(itemView);
             txt_cart_name = (TextView) itemView.findViewById(R.id.cart_item_name);
-            txt_price = (TextView) itemView.findViewById(R.id.cart_item_name);
+            txt_price = (TextView) itemView.findViewById(R.id.cart_item_Price);
             img_cart_count = (ImageView) itemView.findViewById(R.id.cart_item_count);
         }
 
@@ -68,14 +69,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             holder.txt_cart_name.setText(mDataset.get(position)[0]);
 
             holder.txt_price.setText("$" + mDataset.get(position)[1]);
-            holder.parentView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(), ItemDetailsActivity.class);
-                    intent.putExtra("detailsArray", mDataset.get(position));
-                    v.getContext().startActivity(intent);
-                }
-            });
+            Glide.with(holder.img_cart_count).load(mDataset.get(position)[3]).into(holder.img_cart_count);
+
 
 
         }

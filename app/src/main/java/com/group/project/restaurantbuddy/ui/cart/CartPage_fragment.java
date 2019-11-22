@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.group.project.restaurantbuddy.CardData;
 import com.group.project.restaurantbuddy.R;
 
 import androidx.annotation.NonNull;
@@ -48,6 +49,7 @@ public class CartPage_fragment extends Fragment {
 //        order1 = app._getOrder();
 //        arrayList.add(order1);
 
+      cart = CardData.getCardData();
      //Init
         recyclerView = (RecyclerView) view.findViewById(R.id.listCart);
         recyclerView.setHasFixedSize(true);
@@ -63,7 +65,7 @@ public class CartPage_fragment extends Fragment {
 
     private void loadListFood(){
 
-      // cart = CardData.getCardData();
+       //cart = CardData.getCardData();
        adapter = new CartAdapter(cart,getActivity());
        recyclerView.setAdapter(adapter);
     }

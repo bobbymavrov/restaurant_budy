@@ -6,7 +6,7 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.group.project.restaurantbuddy.ui.food.MenuFragment;
-
+import com.group.project.restaurantbuddy.ui.cart.CartPage_fragment;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;

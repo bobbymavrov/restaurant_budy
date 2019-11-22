@@ -13,7 +13,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class Database extends SQLiteOpenHelper {
 
     //variables to assign db names:
-    public static final String DATABASE_NAME = "user.db";
+    public static final String DATABASE_NAME = "Xuser.db";
     public static final String TABLE_NAME = "user_table";
     public static final String TABLE_NAME2 = "order_table";
 
