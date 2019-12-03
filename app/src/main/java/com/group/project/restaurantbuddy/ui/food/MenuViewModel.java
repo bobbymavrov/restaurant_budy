@@ -21,6 +21,7 @@ import com.google.android.libraries.places.api.net.FindCurrentPlaceRequest;
 import com.google.android.libraries.places.api.net.FindCurrentPlaceResponse;
 import com.google.android.libraries.places.api.net.PlacesClient;
 import com.group.project.restaurantbuddy.restaurants.DataBaseHelper;
+import com.group.project.restaurantbuddy.restaurants.FirebaseHelper;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -40,15 +41,18 @@ public class MenuViewModel extends AndroidViewModel {
 
     public List<String[]> loadMenuData(String restaurantName) throws SQLException, IOException {
 
+        FirebaseHelper firebaseHelper = new FirebaseHelper();
+
         getNearbyPlace(this.getApplication().getApplicationContext());
 
         if(closestPlace.equals("IHOP")) {
             List<String[]> items = new ArrayList<>();
-            DataBaseHelper openHelper = new DataBaseHelper(this.getApplication().getApplicationContext());
-            openHelper.openDataBase();
-            SQLiteDatabase userDb = openHelper.getReadableDatabase();
+            firebaseHelper.loadMenuData("ihop");
+            //DataBaseHelper openHelper = new DataBaseHelper(this.getApplication().getApplicationContext());
+            //openHelper.openDataBase();
+            //SQLiteDatabase userDb = openHelper.getReadableDatabase();
 
-            Cursor cursor = userDb.rawQuery("SELECT * FROM ihop", null);
+            /*Cursor cursor = userDb.rawQuery("SELECT * FROM ihop", null);
             int columnsCount = cursor.getColumnCount();
 
             while (cursor.moveToNext()) {
@@ -57,7 +61,8 @@ public class MenuViewModel extends AndroidViewModel {
                     row[i] = cursor.getString(i);
                 }
                 items.add(row);
-            }
+            }*/
+            items = firebaseHelper.menuItems;
             return items;
         }else {return null;}
     }
