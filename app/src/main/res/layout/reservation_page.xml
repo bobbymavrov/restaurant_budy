@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/reservation"
+        android:layout_width="414dp"
+        android:layout_height="551dp"
+        android:adjustViewBounds="true"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/reservation" />
+
+
+    <RadioButton
+        android:id="@+id/radio_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:layout_marginBottom="129dp"
+        android:checked="false"
+        android:onClick="checkButton"
+        app:layout_constraintBottom_toTopOf="@+id/radio_four"
+        app:layout_constraintEnd_toEndOf="@+id/radio_three"
+        app:layout_constraintStart_toStartOf="@+id/radio_three"
+        app:layout_constraintTop_toTopOf="@+id/reservation" />
+
+    <RadioButton
+        android:id="@+id/radio_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="checkButton"
+        app:layout_constraintBaseline_toBaselineOf="@+id/radio_one"
+        app:layout_constraintEnd_toEndOf="@+id/radio_four"
+        app:layout_constraintStart_toStartOf="@+id/radio_four" />
+
+
+    <RadioButton
+        android:id="@+id/radio_three"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="264dp"
+        android:checked="false"
+        android:clickable="false"
+        android:onClick="checkButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/radio_five"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/radio_five" />
+
+
+    <RadioButton
+        android:id="@+id/radio_four"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="289dp"
+        android:layout_marginBottom="286dp"
+        android:onClick="checkButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/radio_six"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/radio_six"
+        app:layout_constraintTop_toTopOf="@+id/reservation"
+        app:layout_constraintVertical_bias="0.464" />
+
+    <RadioButton
+        android:id="@+id/radio_five"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="104dp"
+        android:layout_marginLeft="104dp"
+        android:onClick="checkButton"
+        app:layout_constraintBottom_toBottomOf="@+id/radio_six"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/radio_six"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <RadioButton
+        android:id="@+id/radio_six"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginBottom="100dp"
+        android:onClick="checkButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/text_view_selected"
+        android:layout_width="176dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="Your selection: "
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_reserve"
+        android:layout_width="101dp"
+        android:layout_height="46dp"
+        android:layout_below="@+id/text_view_selected"
+        android:layout_marginStart="116dp"
+        android:layout_marginLeft="116dp"
+        android:text="Reserve"
+        app:layout_constraintBottom_toTopOf="@+id/reservation"
+        app:layout_constraintStart_toEndOf="@+id/text_view_selected" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

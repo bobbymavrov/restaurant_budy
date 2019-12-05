@@ -73,6 +73,9 @@ public class  MainActivity extends AppCompatActivity implements NavigationView.O
 
     private AppBarConfiguration mAppBarConfiguration;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
