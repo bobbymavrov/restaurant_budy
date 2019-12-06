@@ -1,8 +1,5 @@
 package com.group.project.restaurantbuddy.ui.food;
 
-import android.app.Application;
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 
 import com.google.firebase.database.DataSnapshot;
