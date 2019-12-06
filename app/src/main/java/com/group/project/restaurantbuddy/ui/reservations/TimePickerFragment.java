@@ -1,4 +1,4 @@
-package com.group.project.restaurantbuddy;
+package com.group.project.restaurantbuddy.ui.reservations;
 
 import android.app.Dialog;
 import android.app.TimePickerDialog;

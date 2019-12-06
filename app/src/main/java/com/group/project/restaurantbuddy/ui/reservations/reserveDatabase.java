@@ -1,4 +1,4 @@
-package com.group.project.restaurantbuddy;
+package com.group.project.restaurantbuddy.ui.reservations;
 
 import android.content.ContentValues;
 import android.content.Context;

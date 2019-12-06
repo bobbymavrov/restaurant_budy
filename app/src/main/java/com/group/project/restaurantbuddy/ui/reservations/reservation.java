@@ -1,4 +1,4 @@
-package com.group.project.restaurantbuddy;
+package com.group.project.restaurantbuddy.ui.reservations;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +8,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.group.project.restaurantbuddy.R;
 
 public class reservation extends AppCompatActivity {
 

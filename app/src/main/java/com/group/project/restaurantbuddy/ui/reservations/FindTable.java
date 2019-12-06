@@ -1,15 +1,11 @@
-package com.group.project.restaurantbuddy;
+package com.group.project.restaurantbuddy.ui.reservations;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.graphics.Color;
-import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View.OnClickListener;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -21,6 +17,8 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.group.project.restaurantbuddy.R;
 
 import java.util.Calendar;
 

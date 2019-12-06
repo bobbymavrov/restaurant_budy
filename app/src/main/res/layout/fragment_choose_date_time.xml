@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#008000"
     android:orientation="vertical"
-    tools:context="com.group.project.restaurantbuddy.FindTable">
+    tools:context="com.group.project.restaurantbuddy.ui.reservations.FindTable">
 
     <TextView
         android:id="@+id/textView13"

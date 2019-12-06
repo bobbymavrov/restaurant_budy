@@ -1,4 +1,4 @@
-package com.group.project.restaurantbuddy;
+package com.group.project.restaurantbuddy.ui.reservations;
 
 import android.app.DatePickerDialog;
 import android.graphics.Color;
@@ -10,6 +10,8 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.group.project.restaurantbuddy.R;
 
 import java.util.Calendar;
 
@@ -53,8 +55,5 @@ public class dateSelection extends AppCompatActivity {
                 mDisplayDate.setText(date);
             }
         };
-
-
-
     }
 }

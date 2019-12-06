@@ -10,6 +10,8 @@ import android.widget.TimePicker;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
+import com.group.project.restaurantbuddy.ui.reservations.TimePickerFragment;
+
 public class timePicker extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
 
     @Override

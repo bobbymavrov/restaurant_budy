@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.content.Intent;
 import android.view.ViewGroup;
 import android.widget.Button;
 
@@ -12,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.group.project.restaurantbuddy.R;
+import com.group.project.restaurantbuddy.ui.reservations.FindTable;
 
 public class MainReservation extends Fragment {
 
@@ -27,7 +27,7 @@ public class MainReservation extends Fragment {
         btnFindTable.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent in =  new Intent(getActivity(),com.group.project.restaurantbuddy.FindTable.class);
+                Intent in =  new Intent(getActivity(), FindTable.class);
                 startActivity(in);
 
             }
