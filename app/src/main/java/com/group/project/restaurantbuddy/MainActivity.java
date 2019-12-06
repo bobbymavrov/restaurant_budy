@@ -1,31 +1,19 @@
 package com.group.project.restaurantbuddy;
 
-import android.Manifest;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.AssetManager;
 import android.os.Bundle;
-
-import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.Task;
-import com.google.android.libraries.places.api.Places;
-import com.google.android.libraries.places.api.model.Place;
-import com.google.android.libraries.places.api.model.PlaceLikelihood;
-import com.google.android.libraries.places.api.net.FindCurrentPlaceRequest;
-import com.google.android.libraries.places.api.net.FindCurrentPlaceResponse;
-import com.google.android.libraries.places.api.net.PlacesClient;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
@@ -33,31 +21,21 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.group.project.restaurantbuddy.ui.MakeReservation.MainReservation;
 import com.group.project.restaurantbuddy.ui.food.MenuFragment;
 import com.group.project.restaurantbuddy.ui.home.HomeFragment;
-
 import com.group.project.restaurantbuddy.ui.payment.PaymentFragment;
-
 import com.group.project.restaurantbuddy.ui.request.RequestFragment;
 import com.group.project.restaurantbuddy.ui.sign.SignInFragment;
-
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.view.Menu;
-import android.widget.Button;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.Collections;
-import java.util.List;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 

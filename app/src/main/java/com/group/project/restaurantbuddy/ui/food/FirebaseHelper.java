@@ -1,5 +1,6 @@
-package com.group.project.restaurantbuddy.restaurants;
+package com.group.project.restaurantbuddy.ui.food;
 
+import android.app.Application;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -21,21 +22,25 @@ public class FirebaseHelper {
     public void loadMenuData(String restaurantName){
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("restaurants/ihop");
-
+        DatabaseReference myRef = database.getReference("restaurants/" + restaurantName.toLowerCase().replace(' ', '_'));
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 List<Map<String, Object>> helper = (List<Map<String, Object>>) dataSnapshot.getValue();
-                for(Map<String, Object> eachItem : helper){
-                    String[] items = new String[4];
-                    items[0] = eachItem.get("ItemPrice").toString();
-                    items[1] = eachItem.get("ImageUrl").toString();
-                    items[2] = eachItem.get("ItemName").toString();
-                    items[3] = eachItem.get("ItemDescription").toString();
-                    menuItems.add(items);
+                boolean tableFound = false;
+                if(helper != null && !helper.isEmpty()){
+                    for(Map<String, Object> eachItem : helper){
+                        String[] items = new String[4];
+                        items[0] = eachItem.get("ItemName").toString();
+                        items[1] = eachItem.get("ItemPrice").toString();
+                        items[2] = eachItem.get("ItemDescription").toString();
+                        items[3] = eachItem.get("ImageUrl").toString();
+                        menuItems.add(items);
+                    }
+                    tableFound = true;
                 }
+                MenuFragment.loadMenuItems(menuItems, tableFound);
             }
 
             @Override

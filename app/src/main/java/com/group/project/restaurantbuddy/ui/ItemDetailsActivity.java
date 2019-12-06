@@ -44,8 +44,8 @@ public class ItemDetailsActivity extends AppCompatActivity {
             ImageView image = findViewById(R.id.details_image);
 
             title.setText(details[0]);
-            description.setText(details[2]);
             price.setText("$" + details[1]);
+            description.setText(details[2]);
             totalPrice = numItems * Double.parseDouble(details[1]);
             Glide.with(this).load(details[3]).into(image);
         }
