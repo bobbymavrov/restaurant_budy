@@ -19,6 +19,7 @@
         android:paddingRight="@dimen/menu_recycler_padding_sides">
 
         <TextView
+            android:id="@+id/payment_total"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -26,7 +27,7 @@
             android:layout_marginBottom="20dp"
             android:textColor="@color/menu_items_description"
             android:textSize="20dp"
-            android:text="Total: "/>
+            android:text="Total: $0"/>
     </LinearLayout>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
