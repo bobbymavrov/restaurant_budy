@@ -3,7 +3,7 @@ package com.group.project.restaurantbuddy;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ManageReservation extends AppCompatActivity {
-    ReservationDatabase reserveDB;
+    reserveDatabase reserveDB;
 
     /*
         Manage Existing Reservations

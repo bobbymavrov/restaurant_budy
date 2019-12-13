@@ -53,6 +53,6 @@
     <fragment
         android:id="@+id/mainReservation"
         android:name="com.group.project.restaurantbuddy.ui.MakeReservation.MainReservation"
-        android:label="fragment_reservation"
+        android:label="Reserve"
         tools:layout="@layout/fragment_reservation" />
 </navigation>
