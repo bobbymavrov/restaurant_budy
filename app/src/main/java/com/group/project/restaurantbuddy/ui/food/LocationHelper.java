@@ -23,7 +23,7 @@ public class LocationHelper {
 
     public static void getNearbyPlace(Context context){
 
-        Places.initialize(context, "1");
+        Places.initialize(context, "AIzaSyB56qURBmiCUwoS3Z9fIuYKWaFsiQ0YHqk");
         PlacesClient placesClient = Places.createClient(context);
 
         List<Place.Field> placeFields = Collections.singletonList(Place.Field.NAME);
