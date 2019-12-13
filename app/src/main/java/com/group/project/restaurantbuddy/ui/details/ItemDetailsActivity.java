@@ -1,4 +1,4 @@
-package com.group.project.restaurantbuddy.ui;
+package com.group.project.restaurantbuddy.ui.details;
 
 import android.os.Bundle;
 import android.view.Gravity;
@@ -14,8 +14,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
-import com.group.project.restaurantbuddy.CardData;
 import com.group.project.restaurantbuddy.R;
+import com.group.project.restaurantbuddy.ui.cart.CartData;
 
 public class ItemDetailsActivity extends AppCompatActivity {
 
@@ -44,8 +44,8 @@ public class ItemDetailsActivity extends AppCompatActivity {
             ImageView image = findViewById(R.id.details_image);
 
             title.setText(details[0]);
-            description.setText(details[2]);
             price.setText("$" + details[1]);
+            description.setText(details[2]);
             totalPrice = numItems * Double.parseDouble(details[1]);
             Glide.with(this).load(details[3]).into(image);
         }
@@ -75,13 +75,13 @@ public class ItemDetailsActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String[] cardData = new String[6];
+                String[] cartData = new String[6];
                 for(int i = 0; i < details.length; i++){
-                    cardData[i] = details[i];
+                    cartData[i] = details[i];
                 }
-                cardData[4] = Integer.toString(numItems);
-                cardData[5] = Double.toString(totalPrice);
-                CardData.addToCard(cardData);
+                cartData[4] = Integer.toString(numItems);
+                cartData[5] = Double.toString(totalPrice);
+                CartData.addToCard(cartData);
                 Toast toast = Toast.makeText(getApplicationContext(),String.format("$%s added to your card", totalPrice),Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.TOP, 0, 0);
                 toast.show();

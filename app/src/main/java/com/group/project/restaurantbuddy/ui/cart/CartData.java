@@ -1,23 +1,23 @@
-package com.group.project.restaurantbuddy;
+package com.group.project.restaurantbuddy.ui.cart;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CardData {
+public class CartData {
 
-    private static List<String[]> cardData = new ArrayList<>();
+    private static List<String[]> cartData = new ArrayList<>();
 
     public static void addToCard(String[] newData){
-        cardData.add(newData);
+        cartData.add(newData);
     }
 
     public static List<String[]> getCardData(){
-        return cardData;
+        return cartData;
     }
 
     public static boolean emptyCard(){
-        cardData.clear();
-        if (cardData.isEmpty())
+        cartData.clear();
+        if (cartData.isEmpty())
             return true;
         return false;
     }

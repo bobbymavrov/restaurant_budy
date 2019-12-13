@@ -3,8 +3,6 @@ package com.group.project.restaurantbuddy.ui.cart;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +11,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.group.project.restaurantbuddy.R;
-import com.group.project.restaurantbuddy.ui.ItemDetailsActivity;
 
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 

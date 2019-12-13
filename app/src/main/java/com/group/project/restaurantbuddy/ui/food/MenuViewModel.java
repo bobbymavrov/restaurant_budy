@@ -3,12 +3,9 @@ package com.group.project.restaurantbuddy.ui.food;
 import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.AndroidViewModel;
 
@@ -20,7 +17,6 @@ import com.google.android.libraries.places.api.model.PlaceLikelihood;
 import com.google.android.libraries.places.api.net.FindCurrentPlaceRequest;
 import com.google.android.libraries.places.api.net.FindCurrentPlaceResponse;
 import com.google.android.libraries.places.api.net.PlacesClient;
-import com.group.project.restaurantbuddy.restaurants.DataBaseHelper;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -36,19 +32,19 @@ public class MenuViewModel extends AndroidViewModel {
         super(application);
     }
 
-    private String closestPlace = "IHOP";
+    //private String closestPlace = "IHOP";
 
-    public List<String[]> loadMenuData(String restaurantName) throws SQLException, IOException {
+    public void loadLocation() throws SQLException, IOException {
 
-        getNearbyPlace(this.getApplication().getApplicationContext());
+        LocationHelper.getNearbyPlace(getApplication());
+    }
+}
 
-        if(closestPlace.equals("IHOP")) {
-            List<String[]> items = new ArrayList<>();
-            DataBaseHelper openHelper = new DataBaseHelper(this.getApplication().getApplicationContext());
-            openHelper.openDataBase();
-            SQLiteDatabase userDb = openHelper.getReadableDatabase();
+//DataBaseHelper openHelper = new DataBaseHelper(this.getApplication().getApplicationContext());
+//openHelper.openDataBase();
+//SQLiteDatabase userDb = openHelper.getReadableDatabase();
 
-            Cursor cursor = userDb.rawQuery("SELECT * FROM ihop", null);
+            /*Cursor cursor = userDb.rawQuery("SELECT * FROM ihop", null);
             int columnsCount = cursor.getColumnCount();
 
             while (cursor.moveToNext()) {
@@ -57,44 +53,4 @@ public class MenuViewModel extends AndroidViewModel {
                     row[i] = cursor.getString(i);
                 }
                 items.add(row);
-            }
-            return items;
-        }else {return null;}
-    }
-
-    private void getNearbyPlace(Context context){
-
-        Places.initialize(context, "AIzaSyBXm3YJyAKmY_QBGV3Ss7wVq_WYsdMtKUo");
-        PlacesClient placesClient = Places.createClient(context);
-
-        List<Place.Field> placeFields = Collections.singletonList(Place.Field.NAME);
-
-        FindCurrentPlaceRequest request =
-                FindCurrentPlaceRequest.newInstance(placeFields);
-
-        try {
-            if (ContextCompat.checkSelfPermission(context, ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                Task<FindCurrentPlaceResponse> placeResponse = placesClient.findCurrentPlace(request);
-                placeResponse.addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        FindCurrentPlaceResponse response = task.getResult();
-                        for (PlaceLikelihood placeLikelihood : response.getPlaceLikelihoods()) {
-                            Log.i("Places API: ", String.format("Place '%s' has likelihood: %f",
-                                    placeLikelihood.getPlace().getName(), placeLikelihood.getLikelihood()));
-                        }
-                    } else {
-                        Exception exception = task.getException();
-                        if (exception instanceof ApiException) {
-                            ApiException apiException = (ApiException) exception;
-                            Log.e("Places API: ", "Place not found: " + apiException.getStatusCode());
-                        }
-                    }
-                });
-            } else {
-                Log.e("Places API: ", "Missing Permissions");
-            }
-        }catch (Exception e){
-            Log.e("Error", e.getMessage());
-        }
-    }
-}
+            }*/

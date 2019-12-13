@@ -11,8 +11,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.group.project.restaurantbuddy.R;
+import com.group.project.restaurantbuddy.ui.cart.CartData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PaymentFragment extends Fragment {
 
@@ -26,7 +31,16 @@ public class PaymentFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.payment_fragment, container, false);
+
+        View rootView = inflater.inflate(R.layout.payment_fragment, container, false);
+        TextView totalView = rootView.findViewById(R.id.payment_total);
+        List<String[]> cartContent = new ArrayList<>();
+        cartContent = CartData.getCardData();
+        if(!cartContent.isEmpty()){
+            totalView.setText("Total: $" + calculateTotal(cartContent));
+        }
+
+        return rootView;
     }
 
     @Override
@@ -36,4 +50,13 @@ public class PaymentFragment extends Fragment {
         // TODO: Use the ViewModel
     }
 
+    private float calculateTotal(List<String[]> cartContent){
+
+        float total = 0;
+
+        for(String[] eachItem : cartContent){
+            total += Float.parseFloat(eachItem[1]);
+        }
+        return total;
+    }
 }
