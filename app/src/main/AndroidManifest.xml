@@ -20,19 +20,23 @@
             android:label="@string/title_activity_main_page_botton_nav" />
         <activity android:name=".cartPage" />
         <activity android:name=".MainPage" />
-        <activity android:name=".Payment" />
-        <activity android:name=".Request" />
+        <activity android:name=".Payment"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".Request"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".FindTable"></activity>
         <activity
             android:name=".SignUp"
             android:label="@string/title_activity_sign_up"
             android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="adjustPan"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.group.project.restaurantbuddy.MainActivity" />
         </activity>
-        <activity android:name=".SignIn" />
+        <activity android:name=".SignIn"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".ui.ItemDetailsActivity" />
 <!--        <activity android:name=".loginPageActivity" />-->
         <activity
