@@ -55,7 +55,7 @@ public class PaymentFragment extends Fragment {
         float total = 0;
 
         for(String[] eachItem : cartContent){
-            total += Float.parseFloat(eachItem[1]);
+            total += Float.parseFloat(eachItem[5]);
         }
         return total;
     }
