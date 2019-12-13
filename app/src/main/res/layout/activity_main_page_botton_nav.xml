@@ -7,10 +7,32 @@
     android:layout_height="match_parent"
     android:paddingTop="?attr/actionBarSize">
 
-<FrameLayout
-    android:id = "@+id/f_container"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"></FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:textSize="30sp"
+        android:id="@+id/Main_textview"
+        />
+
+    <FrameLayout
+
+        android:id="@+id/f_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/orderHistory"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="35dp"
+            android:background="@android:color/transparent" />
+
+    </FrameLayout>
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"

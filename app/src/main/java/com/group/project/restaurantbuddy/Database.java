@@ -51,8 +51,8 @@ public class Database extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table " + TABLE_NAME +" (ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,EMAIL TEXT,PHONE INTEGER,PASSWORD TEXT)");
-       // db.execSQL("create table " + TABLE_NAME2 +" (ID INTEGER ,ORDER1 TEXT,ORDER2 TEXT,ORDER3 TEXT,ORDER4 TEXT, ORDER5 TEXT)");
-        db.execSQL(createOrderTable);
+        db.execSQL("create table " + TABLE_NAME2 +" (ID INTEGER ,ORDER1 TEXT,ORDER2 TEXT,ORDER3 TEXT,ORDER4 TEXT, ORDER5 TEXT)");
+       // db.execSQL(createOrderTable);
 
     }
 
@@ -76,7 +76,7 @@ public class Database extends SQLiteOpenHelper {
         else
             return true;
     }
-    public boolean insertOrderData(String id, String order1, String order2, String order3, String order4,String order5) {
+    public boolean insertOrderData(int id, String order1, String order2, String order3, String order4,String order5) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(Col_1_order_id, id);

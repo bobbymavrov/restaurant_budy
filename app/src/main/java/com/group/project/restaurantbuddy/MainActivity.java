@@ -22,6 +22,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 import com.group.project.restaurantbuddy.ui.MakeReservation.MainReservation;
+import com.group.project.restaurantbuddy.ui.cart.CartPage_fragment;
 import com.group.project.restaurantbuddy.ui.food.MenuFragment;
 import com.group.project.restaurantbuddy.ui.home.HomeFragment;
 
@@ -134,6 +135,10 @@ public class  MainActivity extends AppCompatActivity implements NavigationView.O
         else if (id == R.id.payment)
         {
             fragment = new PaymentFragment();
+        }
+        else if (id == R.id.nav_cart)
+        {
+            fragment = new CartPage_fragment();
         }
         //NOTE: Fragment changing code
         if (fragment != null) {

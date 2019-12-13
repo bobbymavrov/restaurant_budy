@@ -8,11 +8,13 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.group.project.restaurantbuddy.R;
+import com.group.project.restaurantbuddy.cartPage;
 import com.group.project.restaurantbuddy.ui.ItemDetailsActivity;
 
 import java.text.NumberFormat;
@@ -22,7 +24,9 @@ import java.util.Locale;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
     private List<String[]> mDataset;
+    List<String[]> cart;
     private FragmentActivity activity;
+    Button orderPlace;
 
     public static class CartViewHolder extends RecyclerView.ViewHolder {
         public TextView txt_cart_name, txt_price;
@@ -63,14 +67,19 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         public void onBindViewHolder(CartViewHolder holder, final int position) {
             Locale locale = new Locale("en", "US");
             NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);
-            //int price = (Integer.parseInt(mDataset.get(position).getPrice())) * (Interger.parseInt(listData.get(position).getQuantity()));
+          //  int price = (Integer.parseInt(mDataset.get(position).getPrice())) * (Interger.parseInt(Data.get(position).getQuantity()));
            // holder.txt_price.setText(fmt.format(price));
             //holder.txt_cart_name.setText(listData.get(position).getProductName());
+            int quantity = getItemCount();
             holder.txt_cart_name.setText(mDataset.get(position)[0]);
 
-            holder.txt_price.setText("$" + mDataset.get(position)[1]);
+            holder.txt_price.setText("$" + (mDataset.get(position)[1]));
             Glide.with(holder.img_cart_count).load(mDataset.get(position)[3]).into(holder.img_cart_count);
 
+
+
+           // cart.add(mDataset.get(position)[0]);
+            Intent i;
 
 
         }

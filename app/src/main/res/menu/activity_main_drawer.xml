@@ -38,6 +38,12 @@
             android:icon="@drawable/ic_payment_black_24dp"
             android:title="Payment"/>
 
+        <item
+            android:id="@+id/nav_cart"
+            android:icon="@drawable/ic_payment_black_24dp"
+            android:title="Cart"/>
+
+
 
 
 
